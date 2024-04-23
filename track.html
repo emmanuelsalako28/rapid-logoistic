@@ -49,10 +49,10 @@
         <div class="track-item">
             <h1>TRACK ITEM</h1>
 
-            <form action="/tracking-page.html">
+            <form id="myForm" action="/tracking-page.html">
                 <input type="text" id="fname" name="fname" placeholder="Enter your tracking number(s)" required>
 
-                <input type="submit" id="track-btn" value="Track">
+                <input type="submit" id="track-btn" value="Track" disabled>
             </form>
         </div>
 
@@ -88,8 +88,36 @@
         </footer>
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the form from submitting
 
+            // Get the input value
+            var inputNumber = parseInt(document.getElementById("fname").value);
+
+            // Check if the input is the particular number
+            if (inputNumber === 1234567) {
+                // If it matches, submit the form
+                this.submit();
+            } else {
+                // If it doesn't match, display an error message or take appropriate action
+                alert("Please enter the correct number.");
+            }
+        });
+
+        // Listen for changes in the input field
+        document.getElementById("fname").addEventListener("input", function() {
+            // Get the input value
+            var inputNumber = parseInt(this.value);
+
+            // Enable/disable the submit button based on the input
+            if (inputNumber === 1234567) {
+                document.getElementById("track-btn").disabled = false;
+            } else {
+                document.getElementById("track-btn").disabled = true;
+            }
+        });
+    </script>
 </body>
 
 </html>
