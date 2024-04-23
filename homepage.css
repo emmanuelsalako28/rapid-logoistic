@@ -266,6 +266,12 @@ footer {
     text-align: center;
 }
 
+.track-item h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
 #track-btn {
     font-size: 20px;
     padding: 10px;
